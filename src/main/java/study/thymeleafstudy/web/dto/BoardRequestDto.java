@@ -1,10 +1,8 @@
-package study.thymeleafstudy.dto;
+package study.thymeleafstudy.web.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import study.thymeleafstudy.entity.Board;
+import study.thymeleafstudy.domain.post.Board;
 
 @Getter
 public class BoardRequestDto {

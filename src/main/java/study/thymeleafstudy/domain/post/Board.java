@@ -1,15 +1,16 @@
-package study.thymeleafstudy.entity;
+package study.thymeleafstudy.domain.post;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import study.thymeleafstudy.domain.TimeEntity;
 
 import javax.persistence.*;
 
 @Getter
 @Entity
 @NoArgsConstructor
-public class Board extends TimeEntity{
+public class Board extends TimeEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "board_id")
