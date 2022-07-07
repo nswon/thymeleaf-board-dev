@@ -49,7 +49,11 @@ public class BoardService {
     }
 
     @Transactional
-    public void delete(Long id) {
+    public Long delete(Long id) {
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("존재하지 않는 게시글입니다."));
+
         boardRepository.deleteById(id);
+        return board.getId();
     }
 }
