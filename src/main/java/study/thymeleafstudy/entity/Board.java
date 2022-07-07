@@ -16,6 +16,7 @@ public class Board extends TimeEntity{
     private Long id;
     private String title;
     private String content;
+
     private String writer;
 
     @Builder
