@@ -16,6 +16,8 @@
         <tr>
             <th class="one wide">번호</th>
             <th class="ten wide">글제목</th>
+            <th class="two wide">작성자</th>
+            <th class="three wide">작성일</th>
         </tr>
         </thead>
 
@@ -28,6 +30,12 @@
                 <a th:href="@{'/post/' + ${board.id}}">
                     <span th:text="${board.title}"></span>
                 </a>
+            </td>
+            <td>
+                <span th:text="${board.writer}"></span>
+            </td>
+            <td>
+                <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
             </td>
         </tr>
         </tbody>

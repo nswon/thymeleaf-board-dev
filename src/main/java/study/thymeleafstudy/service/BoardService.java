@@ -44,7 +44,7 @@ public class BoardService {
         Board board = boardRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("존재하지 않는 게시글입니다."));
 
-        board.update(requestDto.getTitle(), requestDto.getContent());
+        board.update(requestDto.getTitle(), requestDto.getContent(), requestDto.getWriter());
         return board.getId();
     }
 
