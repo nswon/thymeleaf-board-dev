@@ -15,6 +15,8 @@ public class Board extends TimeEntity{
     @Column(name = "board_id")
     private Long id;
     private String title;
+
+    @Column(columnDefinition = "TEXT")
     private String content;
 
     private String writer;
