@@ -7,14 +7,16 @@
     <link rel="stylesheet" th:href="@{/css/board.css}">
 </head>
 <body>
+<!--헤더부분-->
 <div th:insert="common/header.html" id="header"></div>
-    <form action="/post" method="post">
+
+<!--글 등록부분-->
+    <form action="/board" method="post">
         <input type="text" class="form-control" placeholder="제목을 입력해주세요" name="title"><br>
         <input type="text" class="form-control" placeholder="사용자의 이름을 입력해주세요" name="writer"> <br>
         <textarea name="content" class="form-control" placeholder="내용을 입력해주세요" aria-label="With textarea"></textarea>
 
         <input type="submit" class="btn btn-primary" value="저장하기">
     </form>
-
 </body>
 </html>

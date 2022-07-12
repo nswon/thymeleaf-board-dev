@@ -1,4 +1,4 @@
-package study.thymeleafstudy.web.dto;
+package study.thymeleafstudy.web.dto.post;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

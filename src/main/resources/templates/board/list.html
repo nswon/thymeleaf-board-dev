@@ -7,9 +7,11 @@
     <link rel="stylesheet" th:href="@{/css/board.css}">
 </head>
 <body>
+<!--헤더부분-->
 <div th:insert="common/header.html" id="header"></div>
+
+<!--테이블부분-->
 <div>
-    <!-- table -->
     <table class="table table-hover">
         <thead>
         <tr>
@@ -19,14 +21,13 @@
             <th scope="col">작성일</th>
         </tr>
         </thead>
-
         <tbody>
-        <tr th:each="board : ${boardAllList}">
+        <tr th:each="board : ${allBoardList}">
             <td>
                 <span th:text="${board.id}"></span>
             </td>
             <td>
-                <a th:href="@{'/post/' + ${board.id}}">
+                <a th:href="@{'/board/' + ${board.id}}">
                     <span th:text="${board.title}"></span>
                 </a>
             </td>
