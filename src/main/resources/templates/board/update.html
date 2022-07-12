@@ -7,14 +7,17 @@
     <link rel="stylesheet" th:href="@{/css/board.css}">
 </head>
 <body>
+<!--헤더부분-->
 <div th:insert="common/header.html" id="header"></div>
-    <form th:action="@{'/post/edit/' + ${boardDto.id}}" method="post">
-        <input type="hidden" name="_method" value="put" />
-        <input type="hidden" name="id" th:value="${boardDto.id}" />
 
-        <input type="text" class="form-control" name="title" th:value="${boardDto.title}"> <br>
-        <input type="text" class="form-control" name="writer" th:value="${boardDto.writer}"> <br>
-        <textarea name="content" class="form-control" aria-label="With textarea" th:text="${boardDto.content}"></textarea><br>
+<!--수정부분-->
+    <form th:action="@{'/board/edit/' + ${detailBoard.id}}" method="post">
+        <input type="hidden" name="_method" value="put" />
+        <input type="hidden" name="id" th:value="${detailBoard.id}" />
+
+        <input type="text" class="form-control" name="title" th:value="${detailBoard.title}"> <br>
+        <input type="text" class="form-control" name="writer" th:value="${detailBoard.writer}"> <br>
+        <textarea name="content" class="form-control" aria-label="With textarea" th:text="${detailBoard.content}"></textarea><br>
 
         <input class="btn btn-primary" type="submit" value="수정하기">
     </form>

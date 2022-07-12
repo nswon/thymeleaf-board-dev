@@ -7,19 +7,21 @@
     <link rel="stylesheet" th:href="@{/css/board.css}">
 </head>
 <body>
+<!--헤더부분-->
 <div th:insert="common/header.html" id="header"></div>
 
-    <h1 th:text="${boardDto.title}"></h1>
-    <p th:text="${boardDto.writer}"></p>
-    <p th:inline="text">작성일 : [[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
-    <p th:text="${boardDto.content}"></p>
+<!--단건조회부분-->
+    <h1 th:text="${detailBoard.title}"></h1>
+    <p th:text="${detailBoard.writer}"></p>
+    <p th:inline="text">작성일 : [[${#temporals.format(detailBoard.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
+    <p th:text="${detailBoard.content}"></p>
 
     <div class="btn-group" role="group" aria-label="Basic example">
-        <a th:href="@{'/post/edit/' + ${boardDto.id}}">
+        <a th:href="@{'/board/edit/' + ${detailBoard.id}}">
             <button type="button" class="btn btn-primary">수정하기</button>
         </a>
 
-        <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
+        <form id="delete-form" th:action="@{'/board/' + ${detailBoard.id}}" method="post">
             <input type="hidden" name="_method" value="delete"/>
             <input class="btn btn-primary" type="submit" value="삭제하기">
         </form>
