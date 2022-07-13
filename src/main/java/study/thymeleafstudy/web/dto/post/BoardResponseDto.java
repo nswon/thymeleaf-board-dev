@@ -3,7 +3,7 @@ package study.thymeleafstudy.web.dto.post;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import study.thymeleafstudy.domain.post.Board;
+import study.thymeleafstudy.domain.board.Board;
 
 import java.time.LocalDateTime;
 

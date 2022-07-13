@@ -1,8 +1,9 @@
-package study.thymeleafstudy.domain.post;
+package study.thymeleafstudy.domain.board;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import study.thymeleafstudy.domain.TimeEntity;
 
 import javax.persistence.*;
@@ -16,10 +17,8 @@ public class Board extends TimeEntity {
     @Column(name = "board_id")
     private Long id;
     private String title;
-
     @Column(columnDefinition = "TEXT")
     private String content;
-
     private String writer;
 
     @Builder
