@@ -2,7 +2,7 @@ package study.thymeleafstudy.service.post;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
+import study.thymeleafstudy.domain.board.Board;
 import study.thymeleafstudy.web.dto.post.BoardRequestDto;
 import study.thymeleafstudy.web.dto.post.BoardResponseDto;
 import study.thymeleafstudy.web.dto.post.BoardUpdateRequestDto;
@@ -16,5 +16,6 @@ public interface BoardService {
     BoardResponseDto detailBoard(Long id);
     Long updateBoard(Long id, BoardUpdateRequestDto requestDto);
     Long deleteBoard(Long id);
-    List<BoardResponseDto> searchBoards(String title);
+    Page<Board> searchBoards(String keyword);
+    Page<Board> pagingBoard(int pageNum);
 }

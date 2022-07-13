@@ -2,6 +2,7 @@ package study.thymeleafstudy.service.post.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -9,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import study.thymeleafstudy.service.post.BoardService;
 import study.thymeleafstudy.web.dto.post.BoardRequestDto;
 import study.thymeleafstudy.web.dto.post.BoardResponseDto;
-import study.thymeleafstudy.domain.post.Board;
-import study.thymeleafstudy.domain.post.repository.BoardRepository;
+import study.thymeleafstudy.domain.board.Board;
+import study.thymeleafstudy.domain.board.repository.BoardRepository;
 import study.thymeleafstudy.web.dto.post.BoardUpdateRequestDto;
 
 import java.util.List;
@@ -69,9 +70,13 @@ public class BoardServiceImpl implements BoardService{
 
     @Transactional
     @Override
-    public List<BoardResponseDto> searchBoards(String keyword) {
-        return boardRepository.findByTitleContaining(keyword).stream()
-                .map(BoardResponseDto::new)
-                .collect(Collectors.toList());
+    public Page<Board> searchBoards(String keyword) {
+        return new PageImpl<>(boardRepository.findByTitleContaining(keyword));
+    }
+
+    @Override
+    public Page<Board> pagingBoard(int pageNum) {
+        Pageable pageable = PageRequest.of(pageNum, 10);
+        return boardRepository.findAll(pageable);
     }
 }
