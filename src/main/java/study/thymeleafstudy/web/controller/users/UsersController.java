@@ -13,7 +13,6 @@ import study.thymeleafstudy.web.dto.users.UsersRequestDto;
 @RequiredArgsConstructor
 @RequestMapping("/users")
 public class UsersController {
-
     private final UsersService usersService;
 
     @GetMapping("/signup")

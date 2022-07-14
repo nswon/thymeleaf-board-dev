@@ -25,6 +25,7 @@ public class Users {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+//    회원가입시 USER권한 부여
     public void addUserAuthority() {
         this.role = Role.USER;
     }
